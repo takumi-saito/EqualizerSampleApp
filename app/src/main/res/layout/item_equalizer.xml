@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.takumi.equalizersampleapp.viewmodel.ItemEqualizerViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:minWidth="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.takumi.equalizersampleapp.ui.VerticalSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:max="@{viewModel.seekMax}"
+        android:min="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_band_name"
+        android:layout_marginTop="15dp"
+        android:splitTrack="false"
+        android:progress="@={viewModel.seekProgress}"
+        app:customThumb="@drawable/altitude_slider_icon"
+        />
+    <TextView
+        android:id="@+id/text_band_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="15dp"
+        android:text="@{viewModel.seekDisplay}"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
